@@ -80,7 +80,7 @@ static uint8_t m_beacon_info[APP_BEACON_INFO_LENGTH] =                    /**< I
 };
 
 
-static uint8_t arrayDePrueba[13] = {0x02,0x01,0x06,0x05,0xFF,0xFF,0X02,0X00,0XFF,0X03,0X08,0X43,0X75};
+static uint8_t arrayDePrueba[] = {0x02,0x01,0x06,0x03,0xFF,0x02,0X03,0X0F,0X08,0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0x41,0x42,0X43,0X44,0x45};
 
 
 /**@brief Function for initializing the Advertising functionality.
@@ -249,7 +249,7 @@ int main(void)
     // Start execution.
     advertising_start();
 //******
-    bsp_board_led_on(2);
+    bsp_board_led_on(3);
 //******
     // Enter main loop.
     for (;; )
