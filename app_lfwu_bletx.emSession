@@ -14,6 +14,8 @@
   <ProjectSessionItem path="app_lfwu_bletx_pca10056_s140"/>
   <ProjectSessionItem path="app_lfwu_bletx_pca10056_s140;app_lfwu_bletx_pca10056_s140"/>
   <ProjectSessionItem path="app_lfwu_bletx_pca10056_s140;app_lfwu_bletx_pca10056_s140;Application"/>
+  <ProjectSessionItem path="app_lfwu_bletx_pca10056_s140;app_lfwu_bletx_pca10056_s140;nRF_BLE"/>
+  <ProjectSessionItem path="app_lfwu_bletx_pca10056_s140;app_lfwu_bletx_pca10056_s140;nRF_Libraries"/>
  </Project>
  <Register1/>
  <Register2/>
@@ -38,7 +40,11 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="22" y="287" useTextEdit="1" path="main.c" left="0" selected="1" top="270" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="57" y="133" useTextEdit="1" path="main.c" left="0" selected="1" top="107" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="136" y="1866" useTextEdit="1" openedFrom="D:/PROGRAMAS/Nordic/Projects/LFWU_BLETX/app_lfwu_bletx/main.c" path="../../../nRF5_SDK/nRF5_SDK_current/components/softdevice/s140/headers/ble_gap.h" left="0" top="1856" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="11" y="133" useTextEdit="1" openedFrom="D:/PROGRAMAS/Nordic/Projects/LFWU_BLETX/app_lfwu_bletx/main.c" path="../../../nRF5_SDK/nRF5_SDK_current/components/ble/common/ble_advdata.h" left="0" top="111" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="508" useTextEdit="1" openedFrom="D:/PROGRAMAS/Nordic/Projects/LFWU_BLETX/app_lfwu_bletx/main.c" path="../../../nRF5_SDK/nRF5_SDK_current/components/ble/common/ble_advdata.c" left="0" top="506" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="16" y="325" useTextEdit="1" openedFrom="D:/PROGRAMAS/Nordic/nRF5_SDK/nRF5_SDK_current/components/ble/common/ble_advdata.h" path="../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/app_util.h" left="0" top="302" codecName="Default"/>
  </Files>
  <EMStudioWindow activeProject="app_lfwu_bletx_pca10056_s140" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="" debugSearchPath="" autoConnectCapabilities="3199"/>
 </session>
