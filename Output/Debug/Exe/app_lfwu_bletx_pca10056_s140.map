@@ -11776,7 +11776,7 @@ LOAD linker stubs
  .debug_aranges
                 0x0000000000003530      0x1b0 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_sdh_soc.o
 
-.debug_str      0x0000000000000000    0xaf54b
+.debug_str      0x0000000000000000    0xaf586
  .debug_str     0x0000000000000000       0x6d Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/thumb_crt0.o
  .debug_str     0x000000000000006d    0x93888 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/app_button.o
                                       0x95f25 (size before relaxing)
@@ -11820,13 +11820,13 @@ LOAD linker stubs
                                       0x94c9f (size before relaxing)
  .debug_str     0x00000000000a51d9      0xffb Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/bsp.o
                                       0x94581 (size before relaxing)
- .debug_str     0x00000000000a61d4     0x7e6e Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
-                                      0x9c4cd (size before relaxing)
- .debug_str     0x00000000000ae042      0x3fd Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_sdh.o
+ .debug_str     0x00000000000a61d4     0x7ea9 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
+                                      0x9c508 (size before relaxing)
+ .debug_str     0x00000000000ae07d      0x3fd Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_sdh.o
                                       0x8e917 (size before relaxing)
- .debug_str     0x00000000000ae43f      0xfce Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_sdh_ble.o
+ .debug_str     0x00000000000ae47a      0xfce Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_sdh_ble.o
                                       0x947e1 (size before relaxing)
- .debug_str     0x00000000000af40d      0x13e Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_sdh_soc.o
+ .debug_str     0x00000000000af448      0x13e Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_sdh_soc.o
                                       0x8d46f (size before relaxing)
 
 .debug_ranges   0x0000000000000000     0x35c0
@@ -11978,7 +11978,7 @@ LOAD linker stubs
  .debug_pubtypes
                 0x00000000000061c6      0x3d6 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_sdh_soc.o
 
-.debug_macro    0x0000000000000000     0x8b62
+.debug_macro    0x0000000000000000     0x8b68
  .debug_macro   0x0000000000000000      0x375 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/app_button.o
  .debug_macro   0x0000000000000375       0x52 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/app_button.o
  .debug_macro   0x00000000000003c7       0x49 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/app_button.o
@@ -12076,21 +12076,21 @@ LOAD linker stubs
  .debug_macro   0x0000000000006b7c      0x312 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/bsp.o
  .debug_macro   0x0000000000006e8e       0x1c Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/bsp.o
  .debug_macro   0x0000000000006eaa      0x100 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/bsp.o
- .debug_macro   0x0000000000006faa      0x429 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
- .debug_macro   0x00000000000073d3       0x46 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
- .debug_macro   0x0000000000007419       0xb2 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
- .debug_macro   0x00000000000074cb      0x13a Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
- .debug_macro   0x0000000000007605      0x204 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
- .debug_macro   0x0000000000007809      0x5ad Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
- .debug_macro   0x0000000000007db6       0x8d Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
- .debug_macro   0x0000000000007e43      0x205 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
- .debug_macro   0x0000000000008048       0x22 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
- .debug_macro   0x000000000000806a       0xf4 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
- .debug_macro   0x000000000000815e       0x3c Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
- .debug_macro   0x000000000000819a       0x1c Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
- .debug_macro   0x00000000000081b6       0x6a Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
- .debug_macro   0x0000000000008220       0x10 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
- .debug_macro   0x0000000000008230      0x293 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_sdh.o
- .debug_macro   0x00000000000084c3      0x16d Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_sdh.o
- .debug_macro   0x0000000000008630      0x2c8 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_sdh_ble.o
- .debug_macro   0x00000000000088f8      0x26a Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_sdh_soc.o
+ .debug_macro   0x0000000000006faa      0x42f Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
+ .debug_macro   0x00000000000073d9       0x46 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
+ .debug_macro   0x000000000000741f       0xb2 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
+ .debug_macro   0x00000000000074d1      0x13a Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
+ .debug_macro   0x000000000000760b      0x204 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
+ .debug_macro   0x000000000000780f      0x5ad Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
+ .debug_macro   0x0000000000007dbc       0x8d Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
+ .debug_macro   0x0000000000007e49      0x205 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
+ .debug_macro   0x000000000000804e       0x22 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
+ .debug_macro   0x0000000000008070       0xf4 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
+ .debug_macro   0x0000000000008164       0x3c Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
+ .debug_macro   0x00000000000081a0       0x1c Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
+ .debug_macro   0x00000000000081bc       0x6a Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
+ .debug_macro   0x0000000000008226       0x10 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o
+ .debug_macro   0x0000000000008236      0x293 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_sdh.o
+ .debug_macro   0x00000000000084c9      0x16d Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_sdh.o
+ .debug_macro   0x0000000000008636      0x2c8 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_sdh_ble.o
+ .debug_macro   0x00000000000088fe      0x26a Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_sdh_soc.o

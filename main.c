@@ -14,6 +14,7 @@
 #define APP_BLE_CONN_CFG_TAG            1                                  /**< A tag identifying the SoftDevice BLE configuration. */
 
 #define NON_CONNECTABLE_ADV_INTERVAL    MSEC_TO_UNITS(100, UNIT_0_625_MS)  /**< The advertising interval for non-connectable advertisement (100 ms). This value can vary between 100ms to 10.24s). */
+#define NON_CONNECTABLE_ADV_TIMEOUT     MSEC_TO_UNITS(2000, UNIT_10_MS)
 
 #define APP_AD_LEN_FLAG     ARRAY_LENGTH(((uint8_t[]){APP_AD_TYPE_FLAG,APP_AD_DATA_FLAG})) 
 #define APP_AD_TYPE_FLAG    0X01
@@ -57,7 +58,11 @@ static void advertising_init(void){
     m_adv_params.p_peer_addr     = NULL;    // Undirected advertisement.
     m_adv_params.filter_policy   = BLE_GAP_ADV_FP_ANY;
     m_adv_params.interval        = NON_CONNECTABLE_ADV_INTERVAL;
-    m_adv_params.duration        = 0;       // Never time out.
+    m_adv_params.duration        = 300;      /**< Advertising duration in 10 ms units. When timeout is reached,
+                                              an event of type @ref BLE_GAP_EVT_ADV_SET_TERMINATED is raised.
+                                              @sa BLE_GAP_ADV_TIMEOUT_VALUES.
+                                              @note The SoftDevice will always complete at least one advertising
+                                              event even if the duration is set too low. */
     
     err_code = sd_ble_gap_adv_set_configure(&m_adv_handle, &m_adv_data, &m_adv_params);
     APP_ERROR_CHECK(err_code);
@@ -113,6 +118,17 @@ static void power_management_init(void){
 static void idle_state_handle(void){
      nrf_pwr_mgmt_run();
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 int main(void){
