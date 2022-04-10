@@ -9,18 +9,19 @@
 #include "app_timer.h"
 #include "nrf_pwr_mgmt.h"
 
+#define ARRAY_LENGTH(array) (uint8_t)sizeof(array)
 
 #define APP_BLE_CONN_CFG_TAG            1                                  /**< A tag identifying the SoftDevice BLE configuration. */
 
 #define NON_CONNECTABLE_ADV_INTERVAL    MSEC_TO_UNITS(100, UNIT_0_625_MS)  /**< The advertising interval for non-connectable advertisement (100 ms). This value can vary between 100ms to 10.24s). */
 
-#define APP_AD_LEN_FLAG     0X02
+#define APP_AD_LEN_FLAG     ARRAY_LENGTH(((uint8_t[]){APP_AD_TYPE_FLAG,APP_AD_DATA_FLAG})) 
 #define APP_AD_TYPE_FLAG    0X01
 #define APP_AD_DATA_FLAG    0X06    // Nonconnectable, undirected 
-#define APP_AD_LEN_MSD      0X03
+#define APP_AD_LEN_MSD      ARRAY_LENGTH(((uint8_t[]){APP_AD_TYPE_MSD,APP_AD_DATA_MSD})) 
 #define APP_AD_TYPE_MSD     0XFF
-#define APP_AD_DATA_MSD     0X03, 0x02  // Nordic Semiconductors
-#define APP_AD_LEN_SHLN     0X0F    // Depende de la informacion que pongamos!!
+#define APP_AD_DATA_MSD     0X59,0x00  // Nordic Semiconductors
+#define APP_AD_LEN_SHLN     ARRAY_LENGTH(((uint8_t[]){APP_AD_TYPE_SHLN,APP_AD_DATA_SHLN})) 
 #define APP_AD_TYPE_SHLN    0x08    // Shortened Local Name   
 #define APP_AD_DATA_SHLN    0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0x41,0x42,0X43,0X44,0x45  // ID on the Tag
 
