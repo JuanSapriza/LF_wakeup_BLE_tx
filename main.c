@@ -19,7 +19,7 @@
 #define APP_AD_DATA_FLAG    0X06    // Nonconnectable, undirected 
 #define APP_AD_LEN_MSD      0X03
 #define APP_AD_TYPE_MSD     0XFF
-#define APP_AD_DATA_MSD     0X0203  // Nordic Semiconductors
+#define APP_AD_DATA_MSD     0X02, 0x03  // Nordic Semiconductors
 #define APP_AD_LEN_SHLN     0X0F    // Depende de la informacion que pongamos!!
 #define APP_AD_TYPE_SHLN    0x08    // Shortened Local Name   
 #define APP_AD_DATA_SHLN    0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0x41,0x42,0X43,0X44,0x45  // ID on the Tag
@@ -42,7 +42,7 @@ static ble_gap_adv_data_t m_adv_data ={
     .adv_data =
     {
         .p_data = advData,
-        .len    = sizeof(advData)
+        .len    = 31
     },
 };
 
@@ -91,21 +91,28 @@ static void ble_stack_init(void){
     APP_ERROR_CHECK(err_code);
 }
 
-static void leds_init(void){
+static void leds_init(void)
+{
     ret_code_t err_code = bsp_init(BSP_INIT_LEDS, NULL);
     APP_ERROR_CHECK(err_code);
 }
 
-static void timers_init(void){
-
+static void timers_init(void)
+{
+    ret_code_t err_code = app_timer_init();
+    APP_ERROR_CHECK(err_code);
 }
 
 static void power_management_init(void)
-
-
+{
+    ret_code_t err_code;
+    err_code = nrf_pwr_mgmt_init();
+    APP_ERROR_CHECK(err_code);
 }
 
-static void idle_state_handle(void){
+
+static void idle_state_handle(void)
+{
      nrf_pwr_mgmt_run();
 }
 
@@ -120,7 +127,7 @@ int main(void){
 
     advertising_start();
 
-    bsp_board_led_on(3);
+    bsp_board_led_on(2);
     for (;; ){
         idle_state_handle();
     }
