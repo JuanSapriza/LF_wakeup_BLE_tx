@@ -19,15 +19,16 @@
 #define APP_AD_DATA_FLAG    0X06    // Nonconnectable, undirected 
 #define APP_AD_LEN_MSD      0X03
 #define APP_AD_TYPE_MSD     0XFF
-#define APP_AD_DATA_MSD     0X02, 0x03  // Nordic Semiconductors
+#define APP_AD_DATA_MSD     0X03, 0x02  // Nordic Semiconductors
 #define APP_AD_LEN_SHLN     0X0F    // Depende de la informacion que pongamos!!
 #define APP_AD_TYPE_SHLN    0x08    // Shortened Local Name   
 #define APP_AD_DATA_SHLN    0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0x41,0x42,0X43,0X44,0x45  // ID on the Tag
 
-static uint8_t advData[] = {
+static uint8_t advData[BLE_GAP_ADV_SET_DATA_SIZE_MAX] = {
    APP_AD_LEN_FLAG,     
    APP_AD_TYPE_FLAG,    
-   APP_AD_DATA_FLAG,       
+   APP_AD_DATA_FLAG, 
+   APP_AD_LEN_MSD,      
    APP_AD_TYPE_MSD,     
    APP_AD_DATA_MSD,     
    APP_AD_LEN_SHLN,      
@@ -42,7 +43,7 @@ static ble_gap_adv_data_t m_adv_data ={
     .adv_data =
     {
         .p_data = advData,
-        .len    = 31
+        .len    = BLE_GAP_ADV_SET_DATA_SIZE_MAX
     },
 };
 
