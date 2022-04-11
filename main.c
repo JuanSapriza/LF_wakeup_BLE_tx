@@ -9,6 +9,8 @@
 #include "app_timer.h"
 #include "nrf_pwr_mgmt.h"
 
+#include "ble_advertising.h"
+
 #define ARRAY_LENGTH(array) (uint8_t)sizeof(array)
 
 #define APP_BLE_CONN_CFG_TAG            1                                  /**< A tag identifying the SoftDevice BLE configuration. */
@@ -76,8 +78,9 @@ static void advertising_start(void){
     err_code = sd_ble_gap_adv_start(m_adv_handle, APP_BLE_CONN_CFG_TAG);
     APP_ERROR_CHECK(err_code);
 
-    err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING);
-    APP_ERROR_CHECK(err_code);
+    //***********************************************************   ACA SE PRENDEN LOS LEDS A TITILAR!
+    //err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING);
+    //APP_ERROR_CHECK(err_code);
 }
 
 
@@ -96,6 +99,8 @@ static void ble_stack_init(void){
     // Enable BLE stack.
     err_code = nrf_sdh_ble_enable(&ram_start);
     APP_ERROR_CHECK(err_code);
+
+    
 }
 
 static void leds_init(void){
@@ -114,12 +119,25 @@ static void power_management_init(void){
     APP_ERROR_CHECK(err_code);
 }
 
-
 static void idle_state_handle(void){
      nrf_pwr_mgmt_run();
 }
 
 
+
+
+
+
+static void sleep_mode_enter(void){
+    uint32_t err_code;
+    
+    //configure button 0 for wakeup
+    nrf_gpio_cfg_sense_input(BSP_BUTTON_0, GPIO_PIN_CNF_PULL_Pullup, GPIO_PIN_CNF_SENSE_Low);
+    
+    // Go to system-off mode (this function will not return; wakeup will cause a reset).
+    err_code = sd_power_system_off();
+    APP_ERROR_CHECK(err_code);
+}
 
 
 
