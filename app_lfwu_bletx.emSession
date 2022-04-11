@@ -40,7 +40,7 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="57" y="133" useTextEdit="1" path="main.c" left="0" selected="1" top="107" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="35" y="133" useTextEdit="1" path="main.c" left="0" selected="1" top="107" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="136" y="1866" useTextEdit="1" openedFrom="D:/PROGRAMAS/Nordic/Projects/LFWU_BLETX/app_lfwu_bletx/main.c" path="../../../nRF5_SDK/nRF5_SDK_current/components/softdevice/s140/headers/ble_gap.h" left="0" top="1856" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="11" y="133" useTextEdit="1" openedFrom="D:/PROGRAMAS/Nordic/Projects/LFWU_BLETX/app_lfwu_bletx/main.c" path="../../../nRF5_SDK/nRF5_SDK_current/components/ble/common/ble_advdata.h" left="0" top="111" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="508" useTextEdit="1" openedFrom="D:/PROGRAMAS/Nordic/Projects/LFWU_BLETX/app_lfwu_bletx/main.c" path="../../../nRF5_SDK/nRF5_SDK_current/components/ble/common/ble_advdata.c" left="0" top="506" codecName="Default"/>

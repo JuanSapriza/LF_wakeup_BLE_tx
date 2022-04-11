@@ -1,15 +1,15 @@
 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/app_timer2.o: \
- D:\PROGRAMAS\Nordic\nRF5_SDK\nRF5_SDK_current\components\libraries\timer\app_timer2.c \
- D:\PROGRAMAS\Nordic\nRF5_SDK\nRF5_SDK_current\components\libraries\timer\app_timer.h \
+ C:\Users\natal\Nordic\nRF5_SDK\nRF5_SDK_current\components\libraries\timer\app_timer2.c \
+ C:\Users\natal\Nordic\nRF5_SDK\nRF5_SDK_current\components\libraries\timer\app_timer.h \
  sdk_config.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/app_error.h \
- D:/PROGRAMAS/Segger/include/stdint.h \
- D:/PROGRAMAS/Segger/include/__SEGGER_RTL.h \
- D:/PROGRAMAS/Segger/include/__SEGGER_RTL_ConfDefaults.h \
- D:/PROGRAMAS/Segger/include/__SEGGER_RTL_Conf.h \
- D:/PROGRAMAS/Segger/include/__SEGGER_RTL_Arm_Conf.h \
- D:/PROGRAMAS/Segger/include/stdio.h \
- D:/PROGRAMAS/Segger/include/stdbool.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/stdint.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/__SEGGER_RTL.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/__SEGGER_RTL_ConfDefaults.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/__SEGGER_RTL_Conf.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/__SEGGER_RTL_Arm_Conf.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/stdio.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/stdbool.h \
  ../../../nRF5_SDK/nRF5_SDK_current/modules/nrfx/mdk/nrf.h \
  ../../../nRF5_SDK/nRF5_SDK_current/modules/nrfx/mdk/nrf52840.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/toolchain/cmsis/include/core_cm4.h \
@@ -27,7 +27,7 @@ Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/app_timer2.o: \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/nordic_common.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/app_error_weak.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/app_util.h \
- D:/PROGRAMAS/Segger/include/stddef.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/stddef.h \
  ../../../nRF5_SDK/nRF5_SDK_current/modules/nrfx/mdk/compiler_abstraction.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/softdevice/s140/headers/nrf52/nrf_mbr.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/softdevice/s140/headers/nrf_svc.h \
@@ -65,11 +65,11 @@ Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/app_timer2.o: \
  ../../../nRF5_SDK/nRF5_SDK_current/modules/nrfx/drivers/nrfx_errors.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/log/nrf_log.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/sdk_common.h \
- D:/PROGRAMAS/Segger/include/string.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/string.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/sdk_os.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/app_util.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/sdk_macros.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/log/src/nrf_log_internal.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/log/nrf_log_types.h \
- D:\PROGRAMAS\Nordic\nRF5_SDK\nRF5_SDK_current\components\libraries\timer\drv_rtc.h \
+ C:\Users\natal\Nordic\nRF5_SDK\nRF5_SDK_current\components\libraries\timer\drv_rtc.h \
  ../../../nRF5_SDK/nRF5_SDK_current/modules/nrfx/hal/nrf_rtc.h

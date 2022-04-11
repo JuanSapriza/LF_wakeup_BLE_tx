@@ -48,5 +48,5 @@
 "Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_sdh.o"
 "Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_sdh_ble.o"
 "Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_sdh_soc.o"
-"D:/PROGRAMAS/Segger/lib/libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a"
-"D:/PROGRAMAS/Segger/lib/heapops_basic_v7em_little.a"
+"C:/Program Files/SEGGER/SEGGER Embedded Studio for ARM 6.22a/lib/libc_v7em_fpv4_sp_d16_hard_t_le_eabi_balanced.a"
+"C:/Program Files/SEGGER/SEGGER Embedded Studio for ARM 6.22a/lib/heapops_basic_v7em_little.a"

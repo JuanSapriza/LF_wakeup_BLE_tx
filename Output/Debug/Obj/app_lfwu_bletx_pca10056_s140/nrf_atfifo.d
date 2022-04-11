@@ -1,14 +1,14 @@
 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_atfifo.o: \
- D:\PROGRAMAS\Nordic\nRF5_SDK\nRF5_SDK_current\components\libraries\atomic_fifo\nrf_atfifo.c \
- D:/PROGRAMAS/Segger/include/string.h \
- D:/PROGRAMAS/Segger/include/__SEGGER_RTL.h \
- D:/PROGRAMAS/Segger/include/__SEGGER_RTL_ConfDefaults.h \
- D:/PROGRAMAS/Segger/include/__SEGGER_RTL_Conf.h \
- D:/PROGRAMAS/Segger/include/__SEGGER_RTL_Arm_Conf.h \
- D:/PROGRAMAS/Segger/include/stdint.h \
- D:/PROGRAMAS/Segger/include/stdbool.h \
+ C:\Users\natal\Nordic\nRF5_SDK\nRF5_SDK_current\components\libraries\atomic_fifo\nrf_atfifo.c \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/string.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/__SEGGER_RTL.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/__SEGGER_RTL_ConfDefaults.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/__SEGGER_RTL_Conf.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/__SEGGER_RTL_Arm_Conf.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/stdint.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/stdbool.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/app_util.h \
- D:/PROGRAMAS/Segger/include/stddef.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/stddef.h \
  ../../../nRF5_SDK/nRF5_SDK_current/modules/nrfx/mdk/compiler_abstraction.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/nordic_common.h \
  ../../../nRF5_SDK/nRF5_SDK_current/modules/nrfx/mdk/nrf.h \
@@ -25,7 +25,7 @@ Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_atfifo.o: \
  ../../../nRF5_SDK/nRF5_SDK_current/modules/nrfx/mdk/compiler_abstraction.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/softdevice/s140/headers/nrf52/nrf_mbr.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/softdevice/s140/headers/nrf_svc.h \
- D:\PROGRAMAS\Nordic\nRF5_SDK\nRF5_SDK_current\components\libraries\atomic_fifo\nrf_atfifo.h \
+ C:\Users\natal\Nordic\nRF5_SDK\nRF5_SDK_current\components\libraries\atomic_fifo\nrf_atfifo.h \
  sdk_config.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/nordic_common.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/nrf_assert.h \
@@ -34,7 +34,7 @@ Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_atfifo.o: \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/log/nrf_log_instance.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/experimental_section_vars/nrf_section.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/log/nrf_log_types.h \
- D:\PROGRAMAS\Nordic\nRF5_SDK\nRF5_SDK_current\components\libraries\atomic_fifo\nrf_atfifo_internal.h \
+ C:\Users\natal\Nordic\nRF5_SDK\nRF5_SDK_current\components\libraries\atomic_fifo\nrf_atfifo_internal.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/log/nrf_log.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/sdk_common.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/sdk_os.h \

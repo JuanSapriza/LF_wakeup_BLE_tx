@@ -1,11 +1,11 @@
 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o: \
- D:\PROGRAMAS\Nordic\Projects\LFWU_BLETX\app_lfwu_bletx\main.c \
- D:/PROGRAMAS/Segger/include/stdbool.h \
- D:/PROGRAMAS/Segger/include/stdint.h \
- D:/PROGRAMAS/Segger/include/__SEGGER_RTL.h \
- D:/PROGRAMAS/Segger/include/__SEGGER_RTL_ConfDefaults.h \
- D:/PROGRAMAS/Segger/include/__SEGGER_RTL_Conf.h \
- D:/PROGRAMAS/Segger/include/__SEGGER_RTL_Arm_Conf.h \
+ C:\Users\natal\Nordic\Projects\LFWU_BLETX\app_lfwu_bletx\main.c \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/stdbool.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/stdint.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/__SEGGER_RTL.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/__SEGGER_RTL_ConfDefaults.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/__SEGGER_RTL_Conf.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/__SEGGER_RTL_Arm_Conf.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/nordic_common.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/bsp/bsp.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/boards/boards.h \
@@ -14,7 +14,7 @@ Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o: \
  ../../../nRF5_SDK/nRF5_SDK_current/integration/nrfx/nrfx_config.h \
  sdk_config.h \
  ../../../nRF5_SDK/nRF5_SDK_current/modules/nrfx/drivers/nrfx_common.h \
- D:/PROGRAMAS/Segger/include/stddef.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/stddef.h \
  ../../../nRF5_SDK/nRF5_SDK_current/modules/nrfx/mdk/nrf.h \
  ../../../nRF5_SDK/nRF5_SDK_current/modules/nrfx/mdk/nrf52840.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/toolchain/cmsis/include/core_cm4.h \
@@ -47,7 +47,7 @@ Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o: \
  ../../../nRF5_SDK/nRF5_SDK_current/components/softdevice/s140/headers/nrf_nvic.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/nrf_assert.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/app_error.h \
- D:/PROGRAMAS/Segger/include/stdio.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/stdio.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/sdk_errors.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/softdevice/s140/headers/nrf_error.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/app_error_weak.h \
@@ -76,7 +76,7 @@ Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o: \
  ../../../nRF5_SDK/nRF5_SDK_current/components/softdevice/s140/headers/ble_gattc.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/softdevice/s140/headers/ble_gatts.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/ble/common/ble_advdata.h \
- D:/PROGRAMAS/Segger/include/string.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/string.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/sdk_common.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/sdk_os.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/app_util.h \
@@ -87,6 +87,7 @@ Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o: \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/log/nrf_log_types.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/sortlist/nrf_sortlist.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/pwr_mgmt/nrf_pwr_mgmt.h \
+ ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/delay/nrf_delay.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/ble/ble_advertising/ble_advertising.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/softdevice/s140/headers/ble_gap.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/softdevice/s140/headers/ble_gattc.h

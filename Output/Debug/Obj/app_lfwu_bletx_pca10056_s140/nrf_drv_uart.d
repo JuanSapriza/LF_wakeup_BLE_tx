@@ -1,17 +1,17 @@
 Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_drv_uart.o: \
- D:\PROGRAMAS\Nordic\nRF5_SDK\nRF5_SDK_current\integration\nrfx\legacy\nrf_drv_uart.c \
- D:\PROGRAMAS\Nordic\nRF5_SDK\nRF5_SDK_current\integration\nrfx\legacy\nrf_drv_uart.h \
+ C:\Users\natal\Nordic\nRF5_SDK\nRF5_SDK_current\integration\nrfx\legacy\nrf_drv_uart.c \
+ C:\Users\natal\Nordic\nRF5_SDK\nRF5_SDK_current\integration\nrfx\legacy\nrf_drv_uart.h \
  ../../../nRF5_SDK/nRF5_SDK_current/modules/nrfx/nrfx.h \
  ../../../nRF5_SDK/nRF5_SDK_current/integration/nrfx/nrfx_config.h \
  sdk_config.h \
  ../../../nRF5_SDK/nRF5_SDK_current/modules/nrfx/drivers/nrfx_common.h \
- D:/PROGRAMAS/Segger/include/stdint.h \
- D:/PROGRAMAS/Segger/include/__SEGGER_RTL.h \
- D:/PROGRAMAS/Segger/include/__SEGGER_RTL_ConfDefaults.h \
- D:/PROGRAMAS/Segger/include/__SEGGER_RTL_Conf.h \
- D:/PROGRAMAS/Segger/include/__SEGGER_RTL_Arm_Conf.h \
- D:/PROGRAMAS/Segger/include/stddef.h \
- D:/PROGRAMAS/Segger/include/stdbool.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/stdint.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/__SEGGER_RTL.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/__SEGGER_RTL_ConfDefaults.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/__SEGGER_RTL_Conf.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/__SEGGER_RTL_Arm_Conf.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/stddef.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/stdbool.h \
  ../../../nRF5_SDK/nRF5_SDK_current/modules/nrfx/mdk/nrf.h \
  ../../../nRF5_SDK/nRF5_SDK_current/modules/nrfx/mdk/nrf52840.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/toolchain/cmsis/include/core_cm4.h \
@@ -45,7 +45,7 @@ Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/nrf_drv_uart.o: \
  ../../../nRF5_SDK/nRF5_SDK_current/components/softdevice/s140/headers/nrf_nvic.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/nrf_assert.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/app_error.h \
- D:/PROGRAMAS/Segger/include/stdio.h \
+ C:/Program\ Files/SEGGER/SEGGER\ Embedded\ Studio\ for\ ARM\ 6.22a/include/stdio.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/sdk_errors.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/softdevice/s140/headers/nrf_error.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/util/app_error_weak.h \

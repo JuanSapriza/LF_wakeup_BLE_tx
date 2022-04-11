@@ -8,6 +8,7 @@
 #include "ble_advdata.h"
 #include "app_timer.h"
 #include "nrf_pwr_mgmt.h"
+#include "nrf_delay.h"
 
 #include "ble_advertising.h"
 
@@ -79,7 +80,7 @@ static void advertising_start(void){
     APP_ERROR_CHECK(err_code);
 
     //***********************************************************   ACA SE PRENDEN LOS LEDS A TITILAR!
-    //err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING);
+    err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING);
     //APP_ERROR_CHECK(err_code);
 }
 
@@ -128,9 +129,11 @@ static void idle_state_handle(void){
 
 
 
-static void sleep_mode_enter(void){
+static void goto_sleep(void){
     uint32_t err_code;
     
+    //Bajar pines
+
     //configure button 0 for wakeup
     nrf_gpio_cfg_sense_input(BSP_BUTTON_0, GPIO_PIN_CNF_PULL_Pullup, GPIO_PIN_CNF_SENSE_Low);
     
@@ -160,6 +163,10 @@ int main(void){
     advertising_start();
 
     bsp_board_led_on(2);
+    nrf_delay_ms(4000);
+    goto_sleep();
+    //bsp_board_led_on(3);
+
     for (;; ){
         idle_state_handle();
     }
