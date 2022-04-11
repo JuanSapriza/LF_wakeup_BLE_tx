@@ -9,6 +9,9 @@
 #include "app_timer.h"
 #include "nrf_pwr_mgmt.h"
 
+
+#include "nrf_sdh_ble.h"
+
 #include "ble_advertising.h"
 
 #define ARRAY_LENGTH(array) (uint8_t)sizeof(array)
@@ -16,7 +19,7 @@
 #define APP_BLE_CONN_CFG_TAG            1                                  /**< A tag identifying the SoftDevice BLE configuration. */
 
 #define NON_CONNECTABLE_ADV_INTERVAL    MSEC_TO_UNITS(100, UNIT_0_625_MS)  /**< The advertising interval for non-connectable advertisement (100 ms). This value can vary between 100ms to 10.24s). */
-#define NON_CONNECTABLE_ADV_TIMEOUT     MSEC_TO_UNITS(2000, UNIT_10_MS)
+#define NON_CONNECTABLE_ADV_TIMEOUT     MSEC_TO_UNITS(4000, UNIT_10_MS)
 
 #define APP_AD_LEN_FLAG     ARRAY_LENGTH(((uint8_t[]){APP_AD_TYPE_FLAG,APP_AD_DATA_FLAG})) 
 #define APP_AD_TYPE_FLAG    0X01
@@ -52,6 +55,29 @@ static ble_gap_adv_data_t m_adv_data ={
 };
 
 
+static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context){
+
+  //bsp_board_leds_off();
+
+  //p_ble_evt->evt.gap_evt.params.adv_set_terminated.reason
+  switch( p_ble_evt->header.evt_id ){
+    case BLE_GAP_EVT_TIMEOUT: 
+      bsp_board_led_on(2);
+      break;
+
+    case BLE_GAP_EVT_ADV_SET_TERMINATED:
+      bsp_board_led_on(1);
+      break;
+
+    default: //BLE_GAP_EVT_ADV_REPORT
+      bsp_board_led_on(2);
+      break;
+  }
+}
+
+
+
+
 static void advertising_init(void){
     uint32_t      err_code;
 
@@ -60,14 +86,14 @@ static void advertising_init(void){
     m_adv_params.p_peer_addr     = NULL;    // Undirected advertisement.
     m_adv_params.filter_policy   = BLE_GAP_ADV_FP_ANY;
     m_adv_params.interval        = NON_CONNECTABLE_ADV_INTERVAL;
-    m_adv_params.duration        = 300;      /**< Advertising duration in 10 ms units. When timeout is reached,
-                                              an event of type @ref BLE_GAP_EVT_ADV_SET_TERMINATED is raised.
-                                              @sa BLE_GAP_ADV_TIMEOUT_VALUES.
-                                              @note The SoftDevice will always complete at least one advertising
-                                              event even if the duration is set too low. */
+    m_adv_params.duration        = NON_CONNECTABLE_ADV_TIMEOUT;
+    //m_adv_params.max_adv_evts    = 5; // por decir algoooo
     
     err_code = sd_ble_gap_adv_set_configure(&m_adv_handle, &m_adv_data, &m_adv_params);
     APP_ERROR_CHECK(err_code);
+
+
+    NRF_SDH_BLE_OBSERVER(m_ble_observer, 3, ble_evt_handler, NULL);
 
 }
 
@@ -79,8 +105,8 @@ static void advertising_start(void){
     APP_ERROR_CHECK(err_code);
 
     //***********************************************************   ACA SE PRENDEN LOS LEDS A TITILAR!
-    //err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING);
-    //APP_ERROR_CHECK(err_code);
+    err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING);
+    APP_ERROR_CHECK(err_code);
 }
 
 
@@ -123,11 +149,6 @@ static void idle_state_handle(void){
      nrf_pwr_mgmt_run();
 }
 
-
-
-
-
-
 static void sleep_mode_enter(void){
     uint32_t err_code;
     
@@ -139,16 +160,6 @@ static void sleep_mode_enter(void){
     APP_ERROR_CHECK(err_code);
 }
 
-
-
-
-
-
-
-
-
-
-
 int main(void){
     timers_init();
     leds_init();
@@ -159,7 +170,7 @@ int main(void){
 
     advertising_start();
 
-    bsp_board_led_on(2);
+    bsp_board_led_on(3);
     for (;; ){
         idle_state_handle();
     }
