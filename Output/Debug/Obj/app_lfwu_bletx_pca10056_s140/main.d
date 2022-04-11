@@ -86,4 +86,7 @@ Output/Debug/Obj/app_lfwu_bletx_pca10056_s140/main.o: \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/experimental_section_vars/nrf_section.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/log/nrf_log_types.h \
  ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/sortlist/nrf_sortlist.h \
- ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/pwr_mgmt/nrf_pwr_mgmt.h
+ ../../../nRF5_SDK/nRF5_SDK_current/components/libraries/pwr_mgmt/nrf_pwr_mgmt.h \
+ ../../../nRF5_SDK/nRF5_SDK_current/components/ble/ble_advertising/ble_advertising.h \
+ ../../../nRF5_SDK/nRF5_SDK_current/components/softdevice/s140/headers/ble_gap.h \
+ ../../../nRF5_SDK/nRF5_SDK_current/components/softdevice/s140/headers/ble_gattc.h
