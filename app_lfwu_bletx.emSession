@@ -43,7 +43,7 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="26" y="72" useTextEdit="1" folds0="100,131,136,141,147,151" path="main.c" left="0" selected="1" top="51" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="24" y="10" useTextEdit="1" folds0="79,91,110,115,120,126,130" path="main.c" left="0" selected="1" top="65" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="24" y="129" useTextEdit="1" openedFrom="D:/PROGRAMAS/Nordic/Projects/LFWU_BLETX/app_lfwu_bletx/main.c" path="../../../nRF5_SDK/nRF5_SDK_current/components/softdevice/s140/headers/ble_gap.h" left="0" top="111" codecName="Default"/>
  </Files>
  <EMStudioWindow activeProject="app_lfwu_bletx_pca10056_s140" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="" debugSearchPath="" autoConnectCapabilities="3199"/>

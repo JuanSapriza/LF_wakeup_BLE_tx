@@ -9,11 +9,6 @@
 #include "app_timer.h"
 #include "nrf_pwr_mgmt.h"
 
-
-#include "nrf_sdh_ble.h"
-
-#include "ble_advertising.h"
-
 #define ARRAY_LENGTH(array) (uint8_t)sizeof(array)
 
 #define APP_BLE_CONN_CFG_TAG            1                                  /**< A tag identifying the SoftDevice BLE configuration. */
@@ -56,26 +51,10 @@ static ble_gap_adv_data_t m_adv_data ={
 
 
 static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context){
-
-  //bsp_board_leds_off();
-
-  //p_ble_evt->evt.gap_evt.params.adv_set_terminated.reason
-  switch( p_ble_evt->header.evt_id ){
-    case BLE_GAP_EVT_TIMEOUT: 
-      bsp_board_led_on(2);
-      break;
-
-    case BLE_GAP_EVT_ADV_SET_TERMINATED:
-      bsp_board_led_on(1);
-      break;
-
-    default: //BLE_GAP_EVT_ADV_REPORT
-      bsp_board_led_on(2);
-      break;
+  if ( p_ble_evt->header.evt_id == BLE_GAP_EVT_ADV_SET_TERMINATED) {
+    bsp_board_led_on(1);
   }
 }
-
-
 
 
 static void advertising_init(void){
