@@ -18,7 +18,7 @@
 
 
 
-#define RANDOM_BUFF_SIZE    16
+#define RANDOM_BUFF_SIZE    14
 
 
 
@@ -33,7 +33,7 @@
 
 #define NON_CONNECTABLE_ADV_INTERVAL    MSEC_TO_UNITS(100, UNIT_0_625_MS)   // The advertising interval in multiples of 0.625 ms. This value can vary between 100ms to 10.24s
 #define NON_CONNECTABLE_ADV_TIMEOUT     MSEC_TO_UNITS(4000, UNIT_10_MS)     // The advertising timeout in multiples of 10 ms. 0 means no timeout. 
-#define NON_CONNECTABLE_ADV_LIMIT       100   // Maximum number of advertising atempts. After this limit is reached, a timeout event is triggered. 
+#define NON_CONNECTABLE_ADV_LIMIT       10   // Maximum number of advertising atempts. After this limit is reached, a timeout event is triggered. 
 
 /* Definition of the Advertising packet. 
   It is formed of N sub-packets, each conformed by 1 byte of size (type+data) + 1 byte of type + n bytes of data. 
@@ -191,13 +191,17 @@ static uint8_t random_vector_generate(uint8_t * p_buff, uint8_t size)
 {
     uint32_t err_code;
     uint8_t  available;
+    uint8_t i;
 
     nrf_drv_rng_bytes_available(&available);
     uint8_t length = MIN(size, available);
 
-    err_code = nrf_drv_rng_rand(p_buff, length);
+    memset(p_buff, 0, size);
+    err_code = nrf_drv_rng_rand(&p_buff[i],length);
     APP_ERROR_CHECK(err_code);
-
+    for(i=0; i<length; i++){
+      p_buff[i] = p_buff[i]%0xA + 0x30;
+    }
     return length;
 }
 
@@ -212,20 +216,22 @@ int main(void){
     leds_init();
     power_management_init();
     ble_stack_init();
-    advertising_init();
+    
 
 
     nrf_drv_rng_init(NULL);
-
-
-
-    advertising_start();
-
-    uint8_t p_buff[RANDOM_BUFF_SIZE];
-    uint8_t length = random_vector_generate(p_buff,4);
+    nrf_delay_ms(50);
     
 
-    bsp_board_led_on(p_buff[3]%4);
+    uint8_t p_buff[RANDOM_BUFF_SIZE];
+    random_vector_generate(p_buff,RANDOM_BUFF_SIZE);  
+    memcpy(&m_adv_data.adv_data.p_data[9],p_buff, RANDOM_BUFF_SIZE);
+
+    advertising_init();
+    advertising_start();
+
+
+    bsp_board_led_on(2);
     for (;; ){
         idle_state_handle();
     }
