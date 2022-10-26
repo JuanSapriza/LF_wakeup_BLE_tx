@@ -15,8 +15,8 @@
 #define APP_BLE_CONN_CFG_TAG            1  /**< A tag identifying the SoftDevice BLE configuration. */
 
 #define NON_CONNECTABLE_ADV_INTERVAL    MSEC_TO_UNITS(100, UNIT_0_625_MS)   // The advertising interval in multiples of 0.625 ms. This value can vary between 100ms to 10.24s
-#define NON_CONNECTABLE_ADV_TIMEOUT     MSEC_TO_UNITS(4000, UNIT_10_MS)     // The advertising timeout in multiples of 10 ms. 0 means no timeout. 
-#define NON_CONNECTABLE_ADV_LIMIT       100   // Maximum number of advertising atempts. After this limit is reached, a timeout event is triggered. 
+#define NON_CONNECTABLE_ADV_TIMEOUT     MSEC_TO_UNITS(1, UNIT_10_MS)     // The advertising timeout in multiples of 10 ms. 0 means no timeout. 
+#define NON_CONNECTABLE_ADV_LIMIT       2   // Maximum number of advertising atempts. After this limit is reached, a timeout event is triggered. 
 
 /* Definition of the Advertising packet. 
   It is formed of N sub-packets, each conformed by 1 byte of size (type+data) + 1 byte of type + n bytes of data. 
@@ -66,9 +66,8 @@ static ble_gap_adv_data_t m_adv_data ={
 static void goto_sleep(void){
     uint32_t err_code;
 
-    // Set all pins to GND
-    bsp_board_led_off(2);
-    bsp_board_led_on(1);
+    //bsp_board_led_off(2);
+    //bsp_board_led_on(1);
 
     //configure button 0 for wakeup
     nrf_gpio_cfg_sense_input(BSP_BUTTON_0, GPIO_PIN_CNF_PULL_Pullup, GPIO_PIN_CNF_SENSE_Low);
@@ -105,9 +104,14 @@ static void advertising_init(void){
     m_adv_params.interval        = NON_CONNECTABLE_ADV_INTERVAL;  // Interval between advertising iterations
     m_adv_params.duration        = NON_CONNECTABLE_ADV_TIMEOUT;   // Max time between advertising start and termination of set.
     m_adv_params.max_adv_evts    = NON_CONNECTABLE_ADV_LIMIT;     // Max advertising iterations between start and termination of set
-    
+
     err_code = sd_ble_gap_adv_set_configure(&m_adv_handle, &m_adv_data, &m_adv_params);
     APP_ERROR_CHECK(err_code);
+
+    //Supported tx_power values: -40dBm, -20dBm, -16dBm, -12dBm, -8dBm, -4dBm, 0dBm, +3dBm and +4dBm.
+    err_code = sd_ble_gap_tx_power_set(BLE_GAP_TX_POWER_ROLE_ADV, (uint16_t) m_adv_handle, -4 );
+    APP_ERROR_CHECK(err_code);
+
 
     // An observer is declared, under the name of m_ble_observer, with prioriry 3, and that shall be attended by ble_evt_handler.
     // At each BLE event, the handler function will be called. 
@@ -170,14 +174,15 @@ static void idle_state_handle(void){
 
 int main(void){
     timers_init();
-    leds_init();
+    //leds_init();
     power_management_init();
     ble_stack_init();
     advertising_init();
 
     advertising_start();
 
-    bsp_board_led_on(2);
+    //bsp_board_led_on(2);
+
     for (;; ){
         idle_state_handle();
     }
