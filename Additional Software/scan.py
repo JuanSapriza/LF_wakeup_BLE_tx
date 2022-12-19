@@ -1,16 +1,18 @@
 from adafruit_ble import BLERadio
+from datetime import datetime
 
 ble = BLERadio()
 print("scanning")
 found = set()
-scan_responses = set()
-for advertisement in ble.start_scan():
-    addr = advertisement.address
-    if advertisement.scan_response and addr not in scan_responses:
-        scan_responses.add(addr)
-    elif not advertisement.scan_response and addr not in found:
-        found.add(addr)
-    else:
-        continue
-    if advertisement.complete_name:
-        print("ID: "+advertisement.complete_name+" | "+str(advertisement.rssi)+"dBi")
+
+
+for ad in ble.start_scan():
+    #addr = ad.address
+    #if ad.scan_response and addr not in scanResponses:
+    if ad.complete_name:
+        if ad.complete_name not in found:
+            found.add(ad.complete_name)
+        print(repr(ad))
+        print("ID: "+ad.complete_name+" | "+str(ad.rssi)+"dBi | " + datetime.now().strftime("%M:%S.%f") )
+    
+

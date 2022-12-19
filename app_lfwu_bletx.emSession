@@ -43,7 +43,7 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="93" y="111" useTextEdit="1" path="main.c" left="0" selected="1" top="91" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="97" y="32" useTextEdit="1" path="main.c" left="0" selected="1" top="13" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="104" y="2030" useTextEdit="1" openedFrom="D:/PROGRAMAS/Nordic/Projects/LFWU_BLETX/app_lfwu_bletx/main.c" path="../../../nRF5_SDK/nRF5_SDK_current/components/softdevice/s140/headers/ble_gap.h" left="0" top="2014" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="323" useTextEdit="1" openedFrom="D:/PROGRAMAS/Nordic/Projects/LFWU_BLETX/app_lfwu_bletx/main.c" path="../../../nRF5_SDK/nRF5_SDK_current/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c" left="0" top="323" codecName="Default"/>
  </Files>

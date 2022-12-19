@@ -30,7 +30,7 @@
 #define APP_AD_DATA_MSD     0X59,0x00  // Nordic Semiconductors
 #define APP_AD_LEN_SHLN     ARRAY_LENGTH(((uint8_t[]){APP_AD_TYPE_SHLN,APP_AD_DATA_SHLN})) 
 #define APP_AD_TYPE_SHLN    0x08    // Shortened Local Name   
-#define APP_AD_DATA_SHLN    0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0x41,0x42,0X43,0X44,0x45  // ID on the Tag
+#define APP_AD_DATA_SHLN    0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0x41,0x42,0X43,0X31,0x38  // ID on the Tag
 
 // The advertising data is concatenated into one single array. 
 static uint8_t advData[BLE_GAP_ADV_SET_DATA_SIZE_MAX] = {
@@ -109,7 +109,7 @@ static void advertising_init(void){
     APP_ERROR_CHECK(err_code);
 
     //Supported tx_power values: -40dBm, -20dBm, -16dBm, -12dBm, -8dBm, -4dBm, 0dBm, +3dBm and +4dBm.
-    err_code = sd_ble_gap_tx_power_set(BLE_GAP_TX_POWER_ROLE_ADV, (uint16_t) m_adv_handle, -4 );
+    err_code = sd_ble_gap_tx_power_set(BLE_GAP_TX_POWER_ROLE_ADV, (uint16_t) m_adv_handle, 4 );
     APP_ERROR_CHECK(err_code);
 
 
