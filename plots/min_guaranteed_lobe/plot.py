@@ -407,30 +407,25 @@ This will be a cuadrant going from 0 to 90deg.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""'''
 
 
-if 0: 
+if 1: 
 	f, axs = plt.subplots(1, 2, subplot_kw=dict(projection="polar"))
-	
-	print(axs)
-	
 	setup_plot	( axs[0] )
 	plot_lobe	( axs[0],  guar_lobe )
 	setup_plot	( axs[1] )
 	plot_lobe	( axs[1],  guar_lobe )
-	
 	plt.show()
 	
-if 1: 
+
+
+
+if 0: 
 	f, axs = plt.subplots(3, angles_n, subplot_kw=dict(projection="polar"))
 	
-	print( axs )
-	print( axs[0] )
-	print( axs[0][0])	
-		
-	for theta_d, i_ax in zip( thetas_d, range( angles_n ) ):
-		theta = str(theta_d) 
+	for phi_d, i_ax in zip( phis_d, range( len(phis_d) ) ):
+		phi = str( phis_d ) 
 		
 		setup_plot 	( axs[0][i_ax] )
-		plot_lobe	( axs[0][i_ax], r_max_flat_time['0'][theta] )
+		plot_lobe	( axs[0][i_ax], r_max_flat_time[ phi ])
 
 	plt.show()
 
@@ -446,6 +441,8 @@ if 0:
 ##############################################
 if 0:
 	f.savefig("imgs/"+meas+".svg",format = 'svg',transparent=True)
+
+
 
 
 
