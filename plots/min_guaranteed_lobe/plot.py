@@ -416,17 +416,16 @@ if 0:
 	plt.show()
 	
 
-print( "guar: ", guar_lobe )
-print( "other: ", np.array( list ( r_max_flat_time[ phi ].items() )))
-
 if 1: 
 	f, axs = plt.subplots(3, angles_n, subplot_kw=dict(projection="polar"))
 	
-	for phi_d, i_ax in zip( phis_d, range( len(phis_d) ) ):
+	for phi_d, i_ax in zip( phis_d, range( angles_n ) ):
 		phi = str( phi_d ) 
 		
 		setup_plot 	( axs[0][i_ax] )
-		plot_lobe	( axs[0][i_ax], np.array( list ( r_max_flat_time[ phi ].items() )) )
+		values = np.array( list ( r_max_flat_time[ phi ].values() ))
+		print(values)
+		plot_lobe	( axs[0][i_ax], np.array( list ( r_max_flat_time[ phi ].values() )) )
 
 	plt.show()
 
