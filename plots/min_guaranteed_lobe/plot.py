@@ -2,7 +2,7 @@ import numpy as np
 from numpy import pi
 from matplotlib import pyplot as plt
 
-from aux import *
+from aux_funcs import *
 
 
 ''''""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -406,6 +406,9 @@ This will be a cuadrant going from 0 to 90deg.
  
 """""""""""""""""""""""""""""""""""""""""""""""""""""""'''
 
+row_
+row_many_phis 	= 1
+row_final 		= 2
 
 if 0: 
 	f, axs = plt.subplots(1, 2, subplot_kw=dict(projection="polar"))
