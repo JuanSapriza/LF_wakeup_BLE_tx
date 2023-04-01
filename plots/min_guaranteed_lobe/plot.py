@@ -1,6 +1,7 @@
 import numpy as np
 from numpy import pi
 from matplotlib import pyplot as plt
+from matplotlib import cm 
 
 from aux_funcs import *
 
@@ -28,8 +29,11 @@ thetas_r	= 	np.array(thetas_d) * deg_2_rad
 dists_m 	= [ 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.40]
 
 # The orientation angles for the tag, in degrees
-phis_d 		= [0, 10, 20, 30, 40, 50, 60, 70, 80, 90 ]
-#phis_d 		= [0, 15, 30, 60, 90 ]
+phis_large 		= [0, 10, 20, 30, 40, 50, 60, 70, 80, 90 ]
+phis_min 		= [0, 45, 90 ]
+phis_orig		= thetas_d
+
+phis_d = phis_min
 
 
 ''''""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -58,21 +62,24 @@ r_m			= []	# Distances over e_r in which the simulation obtained values, in mete
  USEFUL LOCAL FUNCTIONS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""'''
 
-def plot_lobe( ax, lobe ):
+def plot_lobe( ax, lobe, c = 'r' ):
 	( x_lobe, y_lobe ) = get_lobe_polar( r_m, thetas_r, lobe )
-	ax.plot(x_lobe,y_lobe,'k:')
-	ax.fill_between(x_lobe,0,y_lobe, alpha=0.075, zorder=1,color='k')
+	ax.plot(x_lobe,y_lobe,':', color = c )
+	ax.fill_between(x_lobe,0,y_lobe, alpha=0.075, zorder=1,color=c)
 
+def plot_lobe_edge( ax, lobe ):
+	( x_lobe, y_lobe ) = get_lobe_polar( r_m, thetas_r, lobe )
+	ax.plot(x_lobe,y_lobe,'--', color = 'k', linewidth=2 )
 
 def setup_plot( ax ):
 
 	ax.set_ylim( 0,  max( r_m ) + min( r_m ) )
-	ax.set_rmax( round(max( r_m )*10)/10  )
+	ax.set_rmax( round(max( r_m )*10)/9  )
 
 
 	ax.set_thetamax( max( thetas_d ) )
 	ax.set_xticks( deg_2_rad * np.linspace(0,  max( thetas_d ) , angles_n, endpoint=True) )
-	ax.set_rticks( dists_m )
+	ax.set_rticks( dists_m[1::2] )
 	return ax
 
 
@@ -92,10 +99,10 @@ plt.close('all')
 #plt.rcParams["figure.figsize"] = [figLength, figHeight]
 #plt.rcParams["figure.autolayout"] = True
 plt.rcParams["font.family"] = "serif"
-#plt.rc('xtick',labelsize=13)
-#plt.rc('ytick',labelsize=13)
-plt.rc('xtick',labelsize=5)
-plt.rc('ytick',labelsize=5)
+plt.rc('xtick',labelsize=13)
+plt.rc('ytick',labelsize=13)
+#plt.rc('xtick',labelsize=5)
+#plt.rc('ytick',labelsize=5)
 
 
 ''''""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -402,33 +409,23 @@ Once we have some basic values we can prepare the plot.
 This will be a cuadrant going from 0 to 90deg. 
  
 """""""""""""""""""""""""""""""""""""""""""""""""""""""'''
-
-rows_specific_phi	= len( alphas_d )
-row_each_phi 		= rows_specific_phi
-row_final 			= row_each_phi + 1
-
-if 0: 
-	f, axs = plt.subplots(1, 2, subplot_kw=dict(projection="polar"))
-	setup_plot	( axs[0] )
-	plot_lobe	( axs[0],  guar_lobe )
-	setup_plot	( axs[1] )
-	plot_lobe	( axs[1],  guar_lobe )
-	plt.show()
-	
+plot_minimal = 0
 
 if 1: 
-	f, axs = plt.subplots(rows_specific_phi + 2, len(phis_d), subplot_kw=dict(projection="polar"))
+	f, axs = plt.subplots( 1, len(phis_d) + plot_minimal, subplot_kw=dict(projection="polar"))
 
 	for phi_d, i_col in zip( phis_d, range( len( phis_d ) ) ):
 		phi = str(phi_d)
-				
-		for alpha_d, i_row in zip( alphas_d, range( len( alphas_d ) ) ) :
+			
+		setup_plot	( axs[ i_col ] )
+		colors = cm.rainbow(np.linspace(0, 1, len( alphas_d )))
+			
+		for alpha_d, i_color in zip( alphas_d, range( len( alphas_d ) ) ) :
 			alpha = str(alpha_d)
 
 			values = np.array( list ( r_max_rot_tag[ phi ][alpha].values() ))			
 			
-			setup_plot	( axs[ i_row ][ i_col ] )
-			plot_lobe	( axs[ i_row ][ i_col ], values )	
+			plot_lobe	( axs[ i_col ], values, colors[i_color] )	
 
 
 #### Plot each time-flattened lobe	
@@ -437,12 +434,13 @@ if 1:
 			
 		values = np.array( list ( r_max_flat_time[ phi ].values() ))
 
-		setup_plot 	( axs[row_each_phi][i_ax] )
-		plot_lobe	( axs[row_each_phi][i_ax], values )
+		setup_plot 		( axs[i_ax] )
+		plot_lobe_edge	( axs[i_ax], values )
 	
-### Plot the minimal lobe
-	setup_plot	( axs[row_final][0] )
-	plot_lobe	( axs[row_final][0],  guar_lobe )
+	if plot_minimal:
+	### Plot the minimal lobe
+		setup_plot		( axs[len(phis_d)] )
+		plot_lobe_edge	( axs[len(phis_d)],  guar_lobe )
 
 	plt.show()
 
