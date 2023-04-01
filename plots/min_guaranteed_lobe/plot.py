@@ -407,7 +407,7 @@ This will be a cuadrant going from 0 to 90deg.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""'''
 
 
-if 1: 
+if 0: 
 	f, axs = plt.subplots(1, 2, subplot_kw=dict(projection="polar"))
 	setup_plot	( axs[0] )
 	plot_lobe	( axs[0],  guar_lobe )
@@ -416,16 +416,17 @@ if 1:
 	plt.show()
 	
 
+print( "guar: ", guar_lobe )
+print( "other: ", np.array( list ( r_max_flat_time[ phi ].items() )))
 
-
-if 0: 
+if 1: 
 	f, axs = plt.subplots(3, angles_n, subplot_kw=dict(projection="polar"))
 	
 	for phi_d, i_ax in zip( phis_d, range( len(phis_d) ) ):
-		phi = str( phis_d ) 
+		phi = str( phi_d ) 
 		
 		setup_plot 	( axs[0][i_ax] )
-		plot_lobe	( axs[0][i_ax], r_max_flat_time[ phi ])
+		plot_lobe	( axs[0][i_ax], np.array( list ( r_max_flat_time[ phi ].items() )) )
 
 	plt.show()
 
