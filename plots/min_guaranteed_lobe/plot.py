@@ -29,6 +29,7 @@ dists_m 	= [ 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.40]
 
 # The orientation angles for the tag, in degrees
 phis_d 		= [0, 10, 20, 30, 40, 50, 60, 70, 80, 90 ]
+#phis_d 		= [0, 15, 30, 60, 90 ]
 
 
 ''''""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -75,11 +76,6 @@ def setup_plot( ax ):
 	return ax
 
 
-
-
-
-
-
 ''''""""""""""""""""""""""""""""""""""""""""""""""""""""""
  SET UP OF PLOT WINDOW 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""'''
@@ -88,15 +84,18 @@ plt.close('all')
 
 
 # Dimensions of the figure to be generated
-figLength = 7
-figHeight = figLength*0.85
+#figLength = 7
+#figHeight = figLength*0.85
+#figLength = 20
+#figHeight = figLength*0.85
 
-plt.rcParams["figure.figsize"] = [figLength, figHeight]
-plt.rcParams["figure.autolayout"] = True
+#plt.rcParams["figure.figsize"] = [figLength, figHeight]
+#plt.rcParams["figure.autolayout"] = True
 plt.rcParams["font.family"] = "serif"
-plt.rc('xtick',labelsize=13)
-plt.rc('ytick',labelsize=13)
-
+#plt.rc('xtick',labelsize=13)
+#plt.rc('ytick',labelsize=13)
+plt.rc('xtick',labelsize=5)
+plt.rc('ytick',labelsize=5)
 
 
 ''''""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -300,6 +299,7 @@ for phi_d in phis_d:
 		index_max = 0
 		diff = []
 		B_thr_tag_diff = []
+		
 		thisPhi = np.full( lines_n, phi_d )
 		
 		B_rot_tag[phi][alpha] 		= {}
@@ -309,14 +309,11 @@ for phi_d in phis_d:
 		for theta_d in thetas_d:
 			theta = str(theta_d)
 				
-			diff = abs( thisPhi - gamma_rot_r[alpha][theta] )*deg_2_rad
+			diff = abs( thisPhi - gamma_rot_r[alpha][theta]*rad_2_deg )*deg_2_rad
 			
-			factor = np.cos( diff )
+			factor = np.sin( diff )
 			B_rot_tag[phi][alpha][theta] = B_rot[alpha][theta]*factor
-					
-					
-					
-								
+				
 			B_thr_tag_diff = B_rot_tag[phi][alpha][theta] - B_tgt
 			
 			for i in range(len(B_thr_tag_diff)):
@@ -406,9 +403,9 @@ This will be a cuadrant going from 0 to 90deg.
  
 """""""""""""""""""""""""""""""""""""""""""""""""""""""'''
 
-row_
-row_many_phis 	= 1
-row_final 		= 2
+rows_specific_phi	= len( alphas_d )
+row_each_phi 		= rows_specific_phi
+row_final 			= row_each_phi + 1
 
 if 0: 
 	f, axs = plt.subplots(1, 2, subplot_kw=dict(projection="polar"))
@@ -420,15 +417,32 @@ if 0:
 	
 
 if 1: 
-	f, axs = plt.subplots(3, angles_n, subplot_kw=dict(projection="polar"))
-	
-	for phi_d, i_ax in zip( phis_d, range( angles_n ) ):
+	f, axs = plt.subplots(rows_specific_phi + 2, len(phis_d), subplot_kw=dict(projection="polar"))
+
+	for phi_d, i_col in zip( phis_d, range( len( phis_d ) ) ):
+		phi = str(phi_d)
+				
+		for alpha_d, i_row in zip( alphas_d, range( len( alphas_d ) ) ) :
+			alpha = str(alpha_d)
+
+			values = np.array( list ( r_max_rot_tag[ phi ][alpha].values() ))			
+			
+			setup_plot	( axs[ i_row ][ i_col ] )
+			plot_lobe	( axs[ i_row ][ i_col ], values )	
+
+
+#### Plot each time-flattened lobe	
+	for phi_d, i_ax in zip( phis_d, range( len(phis_d) ) ):
 		phi = str( phi_d ) 
-		
-		setup_plot 	( axs[0][i_ax] )
+			
 		values = np.array( list ( r_max_flat_time[ phi ].values() ))
-		print(values)
-		plot_lobe	( axs[0][i_ax], np.array( list ( r_max_flat_time[ phi ].values() )) )
+
+		setup_plot 	( axs[row_each_phi][i_ax] )
+		plot_lobe	( axs[row_each_phi][i_ax], values )
+	
+### Plot the minimal lobe
+	setup_plot	( axs[row_final][0] )
+	plot_lobe	( axs[row_final][0],  guar_lobe )
 
 	plt.show()
 
