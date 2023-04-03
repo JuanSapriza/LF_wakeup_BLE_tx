@@ -67,19 +67,23 @@ def plot_lobe( ax, lobe, c = 'r' ):
 	ax.plot(x_lobe,y_lobe,':', color = c )
 	ax.fill_between(x_lobe,0,y_lobe, alpha=0.075, zorder=1,color=c)
 
-def plot_lobe_edge( ax, lobe ):
+def plot_lobe_edge( ax, lobe, w = 2, s='--' ):
 	( x_lobe, y_lobe ) = get_lobe_polar( r_m, thetas_r, lobe )
-	ax.plot(x_lobe,y_lobe,'--', color = 'k', linewidth=2 )
+	ax.plot(x_lobe,y_lobe,'--', color = 'k', linewidth=w )
 
 def setup_plot( ax ):
 
-	ax.set_ylim( 0,  max( r_m ) + min( r_m ) )
-	ax.set_rmax( round(max( r_m )*10)/9  )
+	#ax.set_ylim( 0,  max( r_m ) + min( r_m ) )
+	#ax.set_rmax( round(max( r_m )*10)/9  )
 
+	ax.set_ylim( 0,  max_dist_m )
+	ax.set_rmax( max_dist_m*1.1  )
 
 	ax.set_thetamax( max( thetas_d ) )
 	ax.set_xticks( deg_2_rad * np.linspace(0,  max( thetas_d ) , angles_n, endpoint=True) )
-	ax.set_rticks( dists_m[1::2] )
+	#ax.set_rticks( dists_m[1::2] )
+	ax.set_rticks(np.arange(0,max_dist_m + 0.5 ))
+	#ax.set_yticklabels( [ '{:0.0f}'.format( x ) for x in range( max_dist_m + 1 ) ])
 	return ax
 
 
@@ -89,20 +93,14 @@ def setup_plot( ax ):
 
 plt.close('all')
 
+figLength = 7
+figHeight = figLength*0.85
 
-# Dimensions of the figure to be generated
-#figLength = 7
-#figHeight = figLength*0.85
-#figLength = 20
-#figHeight = figLength*0.85
-
-#plt.rcParams["figure.figsize"] = [figLength, figHeight]
-#plt.rcParams["figure.autolayout"] = True
+plt.rcParams["figure.figsize"] = [figLength, figHeight]
+plt.rcParams["figure.autolayout"] = True
 plt.rcParams["font.family"] = "serif"
 plt.rc('xtick',labelsize=13)
 plt.rc('ytick',labelsize=13)
-#plt.rc('xtick',labelsize=5)
-#plt.rc('ytick',labelsize=5)
 
 
 ''''""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -224,37 +222,6 @@ if 0:
 	print(B_rot)	
 	print( gamma_rot_r['0']['0'] )
 
-''''""""""""""""""""""""""""""""""""""""""""""""""""""""""
- GETTING Bth @ 5m  for theta=0, phi=0 
- 
-Knowing that in the best possible position and orientation (theta = 0, phi = 0), the tag could be woke up at r = 5 m, we find the magnetic field that was going through it and call it Bth (threshold magnetic field). 
-
-For simplicity and to avoid being unnecessarily demanding with the simulation, the values were obtianed only until 40 cm, so they have to be scaled. 
-
-This is still useful to obtain the shape of the lobe, and then it can be scaled up again. 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""'''	
-
-# A first set of values are skipped to because the magentic field decay can be approximated to A.1/r^3 only after a considerable distance from the coil.
-
-'''
-@ToDo: Compute this skip from the min_dist_m, and not arbitrarily. 
-'''
-skip = 10
-
-# The intesity values are approximated to obtain the coefficient A. 
-opot, pcov = curve_fit( decay, r_m[skip:], B['0'][skip:] )
-A = opot[0]
-
-# The approximation is used (with the coefficient A) to obtain the magnetic field intensity that the tag let thorugh at the max distance. 
-Bth_real = decay( max_dist_m, A )
-
-# The previous value is disregarded momentarily to use a scaled down version. 
-# Once the lobe has been computed, it should be scaled up using the Bth_real/Bth ratio.
-Bth = B['0'][lines_n -1]
-
-if 1:
-	print("Bth: ", Bth)
 
 ''''""""""""""""""""""""""""""""""""""""""""""""""""""""""
  ROTATING THE TAG 
@@ -283,8 +250,8 @@ for each phi:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""'''	
 
 
-### @ToDo: Phis_d should be more granular!!
-#phis_d = thetas_d	
+# Temporarily Bth will be fixed to B(r=40cm) (the B seen at 5m - i.e. the alrgest distance where the tag could WU!- )
+Bth = B['0'][lines_n -1]
 
 B_rot_tag 		= {}
 B_max_rot_tag 	= {}
@@ -402,48 +369,143 @@ if 1:
 	print( "Minimum Guaranteed Lobe: ", guar_lobe )
 
 
+
+
+
+
+
 ''''""""""""""""""""""""""""""""""""""""""""""""""""""""""
-GENERATING THE LOBE
+ SETTING THE FIGURE
+ 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""'''	
+
+
+
+f = plt.figure()
+axs = f.add_subplot(polar=True)
+#f.text(0.5, 0.01, "Distance (m)", ha='center', fontsize=14)
+#f.text(0.72, 0.62, "Reader-tag angle (θ)", ha='center',fontsize=14, rotation = -45)
+plt.tight_layout(pad = 0.8)
+
+
+''''""""""""""""""""""""""""""""""""""""""""""""""""""""""
+ RESIZING THE LOBE
+ 
+Knowing that in the best possible position and orientation (theta = 0, phi = 0), the tag could be woke up at r = 5 m, we find the magnetic field that was going through it and call it Bth (threshold magnetic field). 
+
+For simplicity and to avoid being unnecessarily demanding with the simulation, the values were obtianed only until 40 cm, so they have to be scaled. 
+
+This is used to scale up the lobe.
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""'''	
+
+# A first set of values are skipped to because the magentic field decay can be approximated to A.1/r^3 only after a considerable distance from the coil.
+
+'''
+@ToDo: Compute this skip from the min_dist_m, and not arbitrarily. 
+'''
+skip = 10
+
+A 			= {}
+grow_factor = {}
+guar_lobe_real = []
+
+scaling_factor = 1 / r_m[ lines_n -1 ] 
+
+# The intesity values are approximated to obtain the coefficient A. 
+opot, pcov = curve_fit( decay, r_m[skip:], B['0'][skip:] )
+A = opot[0]
+
+# The approximation is used (with the coefficient A) to obtain the magnetic field intensity that the tag let through at the max distance. 
+Bth_real	= decay( max_dist_m, A)
+r_max_real	= decay_inv( Bth_real, A ) # The distance where Bth real is found. 
+	
+print("guar lobe 0: \t\t", guar_lobe[0] )
+print("scaling factor:\t", scaling_factor )
+print("Bth real: \t\t", Bth_real )
+print("r-max_real: \t\t", r_max_real ) 
+
+
+
+for i_lobe in range( len( thetas_d ) ):
+	guar_lobe_real.append( guar_lobe[i_lobe] * r_max_real * scaling_factor)
+
+
+phi = '0'
+	
+setup_plot( axs )
+colors = cm.rainbow(np.linspace(0, 1, len( alphas_d )))
+	
+scaling_factor = guar_lobe_real / guar_lobe 
+	
+for alpha_d, i_color in zip( alphas_d, range( len( alphas_d ) ) ) :
+	alpha = str(alpha_d)
+
+	values = np.array( list ( r_max_rot_tag[ phi ][alpha].values() ))			
+	
+	# resacling the values
+	values = values * scaling_factor
+	
+	plot_lobe( axs, values, colors[i_color] )	
+
+	
+
+for phi_d in phis_d:
+	phi = str( phi_d ) 
+		
+
+	values = np.array( list ( r_max_flat_time[ phi ].values() ))
+
+	# resacling the values
+	values = values * scaling_factor
+
+	setup_plot 		( axs )
+	if phi_d == 0:
+		w = 3
+	else:
+		w = 2
+	plot_lobe_edge	( axs, values, w=w )
+	
+
+
+''''""""""""""""""""""""""""""""""""""""""""""""""""""""""
+ GENERATING THE LOBE
  
 Once we have some basic values we can prepare the plot. 
 This will be a cuadrant going from 0 to 90deg. 
  
 """""""""""""""""""""""""""""""""""""""""""""""""""""""'''
-plot_minimal = 0
+
+plot_color_lobes = 0
+plot_small_lobes = 1
 
 if 1: 
-	f, axs = plt.subplots( 1, len(phis_d) + plot_minimal, subplot_kw=dict(projection="polar"))
 
-	for phi_d, i_col in zip( phis_d, range( len( phis_d ) ) ):
-		phi = str(phi_d)
-			
-		setup_plot	( axs[ i_col ] )
-		colors = cm.rainbow(np.linspace(0, 1, len( alphas_d )))
-			
+	phi = '0'
+		
+	setup_plot( axs )
+	colors = cm.rainbow(np.linspace(0, 1, len( alphas_d )))
+		
+	if plot_color_lobes:	
 		for alpha_d, i_color in zip( alphas_d, range( len( alphas_d ) ) ) :
 			alpha = str(alpha_d)
 
 			values = np.array( list ( r_max_rot_tag[ phi ][alpha].values() ))			
 			
-			plot_lobe	( axs[ i_col ], values, colors[i_color] )	
+			plot_lobe( axs, values, colors[i_color] )	
 
+	if plot_small_lobes:
+	#### Plot each time-flattened lobe contour	
+		for phi_d in phis_d:
+			phi = str( phi_d ) 
+				
+			values = np.array( list ( r_max_flat_time[ phi ].values() ))
 
-#### Plot each time-flattened lobe	
-	for phi_d, i_ax in zip( phis_d, range( len(phis_d) ) ):
-		phi = str( phi_d ) 
-			
-		values = np.array( list ( r_max_flat_time[ phi ].values() ))
-
-		setup_plot 		( axs[i_ax] )
-		plot_lobe_edge	( axs[i_ax], values )
+			setup_plot 		( axs)
+			plot_lobe_edge	( axs, values, w=1, s=':' )
 	
-	if plot_minimal:
-	### Plot the minimal lobe
-		setup_plot		( axs[len(phis_d)] )
-		plot_lobe_edge	( axs[len(phis_d)],  guar_lobe )
 
 	plt.show()
-
 ##############################################
 ############# TEXT FOR theta LOBE ##############
 ##############################################
@@ -454,8 +516,8 @@ if 0:
 ##############################################
 #############  SAVE IMG ##############
 ##############################################
-if 0:
-	f.savefig("imgs/"+meas+".svg",format = 'svg',transparent=True)
+if 1:
+	f.savefig("imgs/plot.svg",format = 'svg',transparent=True)
 
 
 

@@ -133,8 +133,8 @@ maxAngle = 90
 ax.set_xticks(pi/180 * np.linspace(0,  maxAngle, 7, endpoint=True))
 ax.set_rticks([ 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.40])
 # Adding some text labels
-f.text(0.5, 0.01, "Distance (m)", ha='center', fontsize=14)
-f.text(0.72, 0.62, "Reader-tag angle", ha='center',fontsize=14, rotation = -45)
+#f.text(0.5, 0.01, "Distance (m)", ha='center', fontsize=14)
+#f.text(0.72, 0.62, "Reader-tag angle", ha='center',fontsize=14, rotation = -45)
 plt.tight_layout(pad = 0.8)
 
 
@@ -157,7 +157,7 @@ ax.fill_between(x_lobe,0,y_lobe_sim, alpha=0.075, zorder=0,color='k')
 ############# TEXT FOR THE LOBE ##############
 ##############################################
 
-f.text(0.68, 0.13, "%02d μV @ %d m →" % (Vth_max_dist_vpp*1e6, max_dist_m ), ha='center', fontsize=14)
+#f.text(0.68, 0.13, "%02d μV @ %d m →" % (Vth_max_dist_vpp*1e6, max_dist_m ), ha='center', fontsize=14)
 
 
 ##############################################

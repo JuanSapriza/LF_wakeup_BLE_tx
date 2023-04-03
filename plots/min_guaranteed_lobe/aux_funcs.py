@@ -14,8 +14,8 @@ data_dir = 'data'
 def decay(x, a):
 	return a*(x**(-3))
 
-def decay_inv(v, a):
-	return (a/v)**(1/3)
+def decay_inv(y, a):
+	return (a/y)**(1/3)
 
 
 ##############################################
