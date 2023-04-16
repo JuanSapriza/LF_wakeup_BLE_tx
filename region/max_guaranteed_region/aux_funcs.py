@@ -61,7 +61,7 @@ def getValuesFromFile( file_name ):
 		values = np.empty((0,4),int)
 		for line in f_data:
 		    newLine = line.strip().split('\t')
-		    miArray = np.array(newLine)
-		    values 	= np.append(values,[miArray],axis=0)
+		    dArray 	= np.array(newLine)
+		    values 	= np.append(values,[dArray],axis=0)
 		    values 	= np.asfarray(values,dtype=float)
 	return values.transpose()

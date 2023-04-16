@@ -369,17 +369,10 @@ if 1:
 	print( "Minimum Guaranteed Lobe: ", guar_lobe )
 
 
-
-
-
-
-
 ''''""""""""""""""""""""""""""""""""""""""""""""""""""""""
  SETTING THE FIGURE
  
 """""""""""""""""""""""""""""""""""""""""""""""""""""""'''	
-
-
 
 f = plt.figure()
 axs = f.add_subplot(polar=True)
